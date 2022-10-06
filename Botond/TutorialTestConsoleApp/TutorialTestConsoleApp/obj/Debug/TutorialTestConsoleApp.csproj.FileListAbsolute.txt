@@ -1,0 +1,8 @@
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\bin\Debug\TutorialTestConsoleApp.exe.config
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\bin\Debug\TutorialTestConsoleApp.exe
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\bin\Debug\TutorialTestConsoleApp.pdb
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\obj\Debug\TutorialTestConsoleApp.csproj.AssemblyReference.cache
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\obj\Debug\TutorialTestConsoleApp.csproj.SuggestedBindingRedirects.cache
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\obj\Debug\TutorialTestConsoleApp.csproj.CoreCompileInputs.cache
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\obj\Debug\TutorialTestConsoleApp.exe
+C:\Programozás\C#\IDK\Botond\TutorialTestConsoleApp\TutorialTestConsoleApp\obj\Debug\TutorialTestConsoleApp.pdb
