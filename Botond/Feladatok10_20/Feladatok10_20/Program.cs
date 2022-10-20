@@ -89,11 +89,15 @@ namespace Feladatok10_20
                     max = item.Value;
                 }
             }
-
             foreach (var item in help)
             {
                 if (item.Value == max)
                 {
+                    for(int i = 0; i < szolista.Count;i++)
+                    {
+                        if (szolista[i][0] == item.Key)
+                            szolista.Remove(szolista[i]);
+                    }
                     for (int i = 0; i < szolista.Count; i++)
                     {
                         if (szolista[i][0] == item.Key)
