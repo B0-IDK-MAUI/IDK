@@ -1,0 +1,8 @@
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\bin\Debug\Feladatok10_20.exe.config
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\bin\Debug\Feladatok10_20.exe
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\bin\Debug\Feladatok10_20.pdb
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\obj\Debug\Feladatok10_20.csproj.AssemblyReference.cache
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\obj\Debug\Feladatok10_20.csproj.SuggestedBindingRedirects.cache
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\obj\Debug\Feladatok10_20.csproj.CoreCompileInputs.cache
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\obj\Debug\Feladatok10_20.exe
+C:\Programozás\C#\IDK\Botond\Feladatok10_20\Feladatok10_20\obj\Debug\Feladatok10_20.pdb
