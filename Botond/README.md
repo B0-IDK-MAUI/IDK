@@ -19,3 +19,4 @@
  - I/O metódusok
  - Ciklusok
  - Listák
+ -10_20as projectben szerepelnek a papiros feladatok(1,2,3,4,5,6,9)
