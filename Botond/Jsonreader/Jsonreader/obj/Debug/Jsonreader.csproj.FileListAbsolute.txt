@@ -1,0 +1,11 @@
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\bin\Debug\Jsonreader.exe.config
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\bin\Debug\Jsonreader.exe
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\bin\Debug\Jsonreader.pdb
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\obj\Debug\Jsonreader.csproj.AssemblyReference.cache
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\obj\Debug\Jsonreader.csproj.SuggestedBindingRedirects.cache
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\obj\Debug\Jsonreader.csproj.CoreCompileInputs.cache
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\obj\Debug\Jsonreader.exe
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\obj\Debug\Jsonreader.pdb
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\bin\Debug\Newtonsoft.Json.dll
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\bin\Debug\Newtonsoft.Json.xml
+C:\Programozás\C#\IDK\Botond\Jsonreader\Jsonreader\obj\Debug\Jsonreader.csproj.CopyComplete
