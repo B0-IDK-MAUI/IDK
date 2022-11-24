@@ -22,7 +22,7 @@
  -10_20as projectben szerepelnek a papiros feladatok(1,2,3,4,5,6,9)
 
 **Konvenciók c#ban
--
+-TODO: Formázás, JSonreader
 
 -camelCase --> azt nevezzük camelCase amikor private vagy internal adattagot hozunk létre és az első karaktere egy '_'!
 -PascalCase --> azt nevezzük PascalCasenek amikor valamit class,record vagy struct kulcsszóval deklarálunk(Interfaceknél a kezdő karakter 'I')
