@@ -54,3 +54,11 @@ C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\obj\Debug\OraiMunka.FormAPP.re
 C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\obj\Debug\OraiMunka.csproj.CopyComplete
 C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\obj\Debug\OraiMunka.exe
 C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\obj\Debug\OraiMunka.pdb
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\EntityFramework.dll
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\EntityFramework.SqlServer.dll
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\System.Data.SQLite.dll
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\EntityFramework.xml
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\EntityFramework.SqlServer.xml
+C:\Programozás\C#\IDK\Botond\OraiMunka\OraiMunka\bin\Debug\System.Data.SQLite.xml

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore;
 using Newtonsoft.Json;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SQLite;
 
 namespace OraiMunka
 {
@@ -56,6 +57,25 @@ namespace OraiMunka
             }catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+
+
+            try
+            {
+                string cs = "URI=file:testdb.db";
+
+                var con = new SQLiteConnection(cs);
+                con.Open();
+
+                var cmd = new SQLiteCommand(con);
+
+                cmd.CommandText = $"INSERT INTO TestTable(name, email) VALUES('{NameLabel.Text.Substring(5,NameLabel.Text.Length-5)}','{email.Text.Substring(6,email.Text.Length-6)}')";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Sikeres sql command!");
+            }
+            catch(Exception ex)
+            {
+               MessageBox.Show(ex.Message); 
             }
 
         }
