@@ -10,7 +10,6 @@
 
  - 10_06 a mai órán a TutorialTest mappában lévő feladatokat oldotttam
    meg(Test1,Test2,Test3,Test11)
- - 10_13 MAUI package telepítése VS22-re(teendők otthon virtualbox--> hackintosh)
 
 Összegzés:
   -
@@ -19,10 +18,9 @@
  - I/O metódusok
  - Ciklusok
  - Listák
- -10_20as projectben szerepelnek a papiros feladatok(1,2,3,4,5,6,9)
+ -PapirosFeladatok projectben szerepelnek a papiros feladatok(1,2,3,4,5,6,9)
 
 **Konvenciók c#ban
--TODO: Formázás, JSonreader
 
 -camelCase --> azt nevezzük camelCase amikor private vagy internal adattagot hozunk létre és az első karaktere egy '_'!
 
