@@ -35,4 +35,4 @@
  - [x] fájlkezelés json, xml, text, csv, bin
  - [x] grafikus felület - random user és adatai
  - [x] adatbázis (SQLight, MariaDB)
- - [részleges] beadandó
+ - [x] beadandó
