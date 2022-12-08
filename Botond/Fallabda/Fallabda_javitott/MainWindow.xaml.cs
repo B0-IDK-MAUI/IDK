@@ -18,6 +18,9 @@ namespace Fallabda_javitott
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// Mouse event ne lehessen kihuzni
+    /// Leaderboard - nev, pont, ido, nehezseg akkor is ha vége a játéknak
+    /// Timer duplázás
     /// </summary>
     public partial class MainWindow : Window
     {
