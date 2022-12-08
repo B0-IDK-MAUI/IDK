@@ -25,5 +25,16 @@
 -TODO: Formázás, JSonreader
 
 -camelCase --> azt nevezzük camelCase amikor private vagy internal adattagot hozunk létre és az első karaktere egy '_'!
+
 -PascalCase --> azt nevezzük PascalCasenek amikor valamit class,record vagy struct kulcsszóval deklarálunk(Interfaceknél a kezdő karakter 'I')
+
 -Snake_Case --> snake_case-nek nevezzük amikor a változó nevében két szótagot '_'-al választunk el, pl.: fajl_tomb,fajl_lista ezzel is átláthatóbbá tesszük a kódunkat
+
+-----------------
+- [x] automatikus szemétgyűjtő
+ - [x] github - mappákba rendezés
+ - [x] nyelvi elemek - gyakorlás
+ - [x] fájlkezelés json, xml, text, csv, bin
+ - [x] grafikus felület - random user és adatai
+ - [x] adatbázis (SQLight, MariaDB)
+ - [részleges] beadandó
