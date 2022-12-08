@@ -1,0 +1,8 @@
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\bin\Release\GcCollector.exe.config
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\bin\Release\GcCollector.exe
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\bin\Release\GcCollector.pdb
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\obj\Release\GcCollector.csproj.AssemblyReference.cache
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\obj\Release\GcCollector.csproj.SuggestedBindingRedirects.cache
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\obj\Release\GcCollector.csproj.CoreCompileInputs.cache
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\obj\Release\GcCollector.exe
+C:\Programozás\C#\c-prog\GcCollector\GcCollector\obj\Release\GcCollector.pdb
