@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Data.Sql;
 
@@ -63,7 +62,7 @@ namespace Jsonreader
             Stopwatch sw = new Stopwatch();
             sw.Start();
             
-            var hehe = JsonConvert.DeserializeObject<JsonType>(tmp);
+            var hehe = JsonSerializer.Deserialize<JsonType>(tmp);
             sw.Stop();
             Console.WriteLine("Idő: " + sw.ElapsedMilliseconds);
         }
@@ -96,7 +95,7 @@ namespace Jsonreader
             for (int i = 0; i < 10; i++)
                 lista.Add(new JsonType("Fizetes", r.Next(200000, 5000000)));
 
-            var jsonString = JsonConvert.SerializeObject(lista);
+            var jsonString = JsonSerializer.Serialize(lista);
 
             File.WriteAllText("proba.json", jsonString);
 
