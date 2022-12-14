@@ -1,0 +1,4 @@
+Név || Pont || Idő || Nehézség 
+1. jatekos1 - 33 - 13 - Konnyu 
+2. jatekos2 - 30 - 10 - Kozepes 
+3. botond - 24 - 8 - Konnyu

@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,18 +17,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-using Newtonsoft.Json;
 
 namespace Fallabda_javitott
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// Mouse event ne lehessen kihuzni
-    /// Leaderboard - nev, pont, ido, nehezseg akkor is ha vége a játéknak
-    /// Timer duplázás
-    /// </summary>
     public partial class MainWindow : Window
-    {    
+    {
         public MainWindow()
         {
             InitializeComponent();
@@ -52,17 +49,18 @@ namespace Fallabda_javitott
             block14.Visibility = Visibility.Hidden;
             block15.Visibility = Visibility.Hidden;
 
-            
+
 
             DispatcherTimer ido = new DispatcherTimer();
             ido.Interval = TimeSpan.FromMilliseconds(1);
-            ido.Tick += idoLepes;
+            ido.Tick += new EventHandler(idoLepes);
             ido.Start();
         }
 
         Random r = new Random();
         int sebessegX = 3, sebessegY = 5, pont = 0, x = 450, y = 450;
-        int ido=0;
+        int ido = 0;
+        string diff = "";
 
         private void uj_Click(object sender, RoutedEventArgs e)
         {
@@ -72,39 +70,43 @@ namespace Fallabda_javitott
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
             this.Close();
 
         }
 
+        public void GameTimer()
+        {
+            ido++;
+            labelido.Content = (ido / 100).ToString();
+        }
         private void idoLepes(object sender, EventArgs e)
         {
-          if(konnyu.Visibility == Visibility.Hidden)
-            if (vege.Visibility == Visibility.Hidden)
-            {
 
-
-                 //TIMER
-                ido++;
-                labelido.Content = ido/60;
-
-                //Ütő mozgása
-                Point position = Mouse.GetPosition(canvas);
-                int XUto = Convert.ToInt32(position.X);
-                if (XUto < 0) XUto = 0;
-                if (XUto > Application.Current.MainWindow.Width-uto.Width) XUto = 885;
-                Canvas.SetLeft(uto, XUto);
-
-               
-                //LABDA VISSZAPATTANÁSA ÜTŐRŐL + PONT SZÁMÍTÁS + SEBESSÉG
-                if (Canvas.GetTop(labda) >= 520 && XUto - 15 < Canvas.GetLeft(labda) && XUto + 85 > Canvas.GetLeft(labda))
+            if (konnyu.Visibility == Visibility.Hidden)
+                if (vege.Visibility == Visibility.Hidden)
                 {
-                    sebessegY = -sebessegY;
-                    if (sebessegX <= 0) sebessegX -= r.Next(2);
-                    if (sebessegY <= 0) sebessegY -= r.Next(2);
-                    pont += 1;
-                    labelpont.Content = pont.ToString();
-                }
+
+                    //TIMER
+                    GameTimer();
+
+                    //Ütő mozgása
+                    Point position = Mouse.GetPosition(canvas);
+                    int XUto = Convert.ToInt32(position.X);
+                    if (XUto < 0) XUto = 0;
+                    if (XUto > Application.Current.MainWindow.Width - uto.Width) XUto = 885;
+                    Canvas.SetLeft(uto, XUto);
+
+
+                    //LABDA VISSZAPATTANÁSA ÜTŐRŐL + PONT SZÁMÍTÁS + SEBESSÉG
+                    if (Canvas.GetTop(labda) >= 520 && XUto - 15 < Canvas.GetLeft(labda) && XUto + 85 > Canvas.GetLeft(labda))
+                    {
+                        sebessegY = -sebessegY;
+                        if (sebessegX <= 0) sebessegX -= r.Next(2);
+                        if (sebessegY <= 0) sebessegY -= r.Next(2);
+                        pont += 1;
+                        labelpont.Content = pont.ToString();
+                    }
 
                     //LABDA MOZGÁSA
                     x += sebessegX;
@@ -116,7 +118,7 @@ namespace Fallabda_javitott
                     //BLOCKOK
                     #region
                     if (Canvas.GetLeft(labda) < Canvas.GetLeft(block) + block.Width &&
-                        Canvas.GetLeft(labda) + labda.Width > Canvas.GetLeft(block) && 
+                        Canvas.GetLeft(labda) + labda.Width > Canvas.GetLeft(block) &&
                         Canvas.GetTop(labda) < Canvas.GetTop(block) + block.Height &&
                         Canvas.GetTop(labda) + labda.Height > Canvas.GetTop(block) && block.Visibility == Visibility.Visible)
                     {
@@ -294,54 +296,55 @@ namespace Fallabda_javitott
 
                     //LABDA OLDALRÓL VISSZAPATTANÁSA
                     if (Canvas.GetLeft(labda) <= 0) sebessegX = -sebessegX;
-                if (Canvas.GetLeft(labda) >= 955) sebessegX = -sebessegX;
-                if (Canvas.GetTop(labda) <= 30) sebessegY = -sebessegY;
+                    if (Canvas.GetLeft(labda) >= 955) sebessegX = -sebessegX;
+                    if (Canvas.GetTop(labda) <= 30) sebessegY = -sebessegY;
 
-                //JÁTÉK VÉGE
-                if (Canvas.GetTop(labda) > 528)
-                {
-                    block.Visibility = Visibility.Hidden;
-                    block1.Visibility = Visibility.Hidden;
-                    block2.Visibility = Visibility.Hidden;
-                    block3.Visibility = Visibility.Hidden;
-                    block4.Visibility = Visibility.Hidden;
-                    block5.Visibility = Visibility.Hidden;
-                    block6.Visibility = Visibility.Hidden;
-                    block7.Visibility = Visibility.Hidden;
-                    block8.Visibility = Visibility.Hidden;
-                    block9.Visibility = Visibility.Hidden;
-                    block10.Visibility = Visibility.Hidden;
-                    block11.Visibility = Visibility.Hidden;
-                    block12.Visibility = Visibility.Hidden;
-                    block13.Visibility = Visibility.Hidden;
-                    block14.Visibility = Visibility.Hidden;
-                    block15.Visibility = Visibility.Hidden;
-                    win.Visibility = Visibility.Hidden;
-                    Mouse.OverrideCursor = Cursors.Arrow;
-                    vege.Visibility = Visibility.Visible;
-                    uj.Visibility = Visibility.Visible;
-                    exit.Visibility = Visibility.Visible;
-                    sebessegX = 0;
-                    sebessegY = 0;
-                }
+                    //JÁTÉK VÉGE
+                    if (Canvas.GetTop(labda) > 528)
+                    {
+                        block.Visibility = Visibility.Hidden;
+                        block1.Visibility = Visibility.Hidden;
+                        block2.Visibility = Visibility.Hidden;
+                        block3.Visibility = Visibility.Hidden;
+                        block4.Visibility = Visibility.Hidden;
+                        block5.Visibility = Visibility.Hidden;
+                        block6.Visibility = Visibility.Hidden;
+                        block7.Visibility = Visibility.Hidden;
+                        block8.Visibility = Visibility.Hidden;
+                        block9.Visibility = Visibility.Hidden;
+                        block10.Visibility = Visibility.Hidden;
+                        block11.Visibility = Visibility.Hidden;
+                        block12.Visibility = Visibility.Hidden;
+                        block13.Visibility = Visibility.Hidden;
+                        block14.Visibility = Visibility.Hidden;
+                        block15.Visibility = Visibility.Hidden;
+                        win.Visibility = Visibility.Hidden;
+                        Mouse.OverrideCursor = Cursors.Arrow;
+                        vege.Visibility = Visibility.Visible;
+                        uj.Visibility = Visibility.Visible;
+                        exit.Visibility = Visibility.Visible;
+                        sebessegX = 0;
+                        sebessegY = 0;
+                        LeaderBoard();
+                    }
 
 
-                if(block.Visibility == Visibility.Hidden &&
-                        block1.Visibility == Visibility.Hidden &&
-                        block2.Visibility == Visibility.Hidden &&
-                        block3.Visibility == Visibility.Hidden &&
-                        block4.Visibility == Visibility.Hidden &&
-                        block5.Visibility == Visibility.Hidden &&
-                        block6.Visibility == Visibility.Hidden &&
-                        block7.Visibility == Visibility.Hidden &&
-                        block8.Visibility == Visibility.Hidden &&
-                        block9.Visibility == Visibility.Hidden &&
-                        block10.Visibility == Visibility.Hidden &&
-                        block11.Visibility == Visibility.Hidden &&
-                        block12.Visibility == Visibility.Hidden &&
-                        block13.Visibility == Visibility.Hidden &&
-                        block14.Visibility == Visibility.Hidden &&
-                        block15.Visibility == Visibility.Hidden && Canvas.GetTop(labda) < 528 )
+                    if (block.Visibility == Visibility.Hidden &&
+                            block1.Visibility == Visibility.Hidden &&
+                            block2.Visibility == Visibility.Hidden &&
+                            block3.Visibility == Visibility.Hidden &&
+                            block4.Visibility == Visibility.Hidden &&
+                            block5.Visibility == Visibility.Hidden &&
+                            block6.Visibility == Visibility.Hidden &&
+                            block7.Visibility == Visibility.Hidden &&
+                            block8.Visibility == Visibility.Hidden &&
+                            block9.Visibility == Visibility.Hidden &&
+                            block10.Visibility == Visibility.Hidden &&
+                            block11.Visibility == Visibility.Hidden &&
+                            block12.Visibility == Visibility.Hidden &&
+                            block13.Visibility == Visibility.Hidden &&
+                            block14.Visibility == Visibility.Hidden &&
+                            block15.Visibility == Visibility.Hidden && Canvas.GetTop(labda) < 528)
                     {
                         Mouse.OverrideCursor = Cursors.Arrow;
                         vege.Visibility = Visibility.Visible;
@@ -352,21 +355,42 @@ namespace Fallabda_javitott
                         labda.Visibility = Visibility.Hidden;
                         sebessegX = 0;
                         sebessegY = 0;
-
-
+                        LeaderBoard();
                     }
 
-            }
+                }
         }
 
+        public void LeaderBoard()
+        {
+            MessageBox.Show($"Játékos neve: {TextBoxPlayer.Text} - Pont: {labelpont.Content} - Idő: {labelido.Content} - Nehézség: {diff}");
+            List<Player> tmp = new List<Player>();
+            tmp.Add(new Player(TextBoxPlayer.Text, labelpont.Content.ToString(), labelido.Content.ToString(), diff));
+            var kek = File.ReadAllText("leaderboard.json");
+            if (kek != "")
+            {
+                var pl = JsonSerializer.Deserialize<List<Player>>(kek);
+                tmp.AddRange(pl);
+            }
+            var Ordered = tmp.OrderByDescending(x => Convert.ToInt32(x.Point)).ToList();
+            if (Ordered.Count >= 3)
+            {
+                string aktHely = "Név || Pont || Idő || Nehézség \n" + $"1. {Ordered[0].Name} - {Ordered[0].Point} - {Ordered[0].Time} - {Ordered[0].Level} \n" +
+                    $"2. {Ordered[1].Name} - {Ordered[1].Point} - {Ordered[1].Time} - {Ordered[1].Level} \n" +
+                    $"3. {Ordered[2].Name} - {Ordered[2].Point} - {Ordered[2].Time} - {Ordered[2].Level}\n";
+                MessageBox.Show(aktHely);
+                File.WriteAllText("Helyezes.txt", aktHely);
+            }
+            string output = JsonSerializer.Serialize(Ordered);
+            File.WriteAllText("leaderboard.json", output);
 
-
-
+        }
 
         private void konnyu_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxPlayer.Text != "")
             {
+                diff = "Konnyu";
                 nehezseg.Visibility = Visibility.Hidden;
                 konnyu.Visibility = Visibility.Hidden;
                 kozepes.Visibility = Visibility.Hidden;
@@ -408,39 +432,41 @@ namespace Fallabda_javitott
         {
             if (TextBoxPlayer.Text != "")
             {
+                pont += 10;
+                diff = "Kozepes";
                 labda.Width = 15;
-            labda.Height = 15;
-            uto.Width = 75;
-            nehezseg.Visibility = Visibility.Hidden;
-            konnyu.Visibility = Visibility.Hidden;
-            kozepes.Visibility = Visibility.Hidden;
-            nehez.Visibility = Visibility.Hidden;
-            labelPlayer.Visibility = Visibility.Hidden;
-            TextBoxPlayer.Visibility = Visibility.Hidden;
-            labda.Visibility = Visibility.Visible;
-            uto.Visibility = Visibility.Visible;
-            exit.Visibility = Visibility.Hidden;
-            block.Visibility = Visibility.Visible;
-            block1.Visibility = Visibility.Visible;
-            block2.Visibility = Visibility.Visible;
-            block3.Visibility = Visibility.Visible;
-            block4.Visibility = Visibility.Visible;
-            block5.Visibility = Visibility.Visible;
-            block6.Visibility = Visibility.Visible;
-            block7.Visibility = Visibility.Visible;
-            block8.Visibility = Visibility.Visible;
-            block9.Visibility = Visibility.Visible;
-            block10.Visibility = Visibility.Visible;
-            block11.Visibility = Visibility.Visible;
-            block12.Visibility = Visibility.Visible;
-            block13.Visibility = Visibility.Visible;
-            block14.Visibility = Visibility.Visible;
-            block15.Visibility = Visibility.Visible;
-            labelido.Visibility = Visibility.Visible;
-            labelpont.Visibility = Visibility.Visible;
-            stringpont.Visibility = Visibility.Visible;
-            stringido.Visibility = Visibility.Visible;
-            Mouse.OverrideCursor = Cursors.None;
+                labda.Height = 15;
+                uto.Width = 75;
+                nehezseg.Visibility = Visibility.Hidden;
+                konnyu.Visibility = Visibility.Hidden;
+                kozepes.Visibility = Visibility.Hidden;
+                nehez.Visibility = Visibility.Hidden;
+                labelPlayer.Visibility = Visibility.Hidden;
+                TextBoxPlayer.Visibility = Visibility.Hidden;
+                labda.Visibility = Visibility.Visible;
+                uto.Visibility = Visibility.Visible;
+                exit.Visibility = Visibility.Hidden;
+                block.Visibility = Visibility.Visible;
+                block1.Visibility = Visibility.Visible;
+                block2.Visibility = Visibility.Visible;
+                block3.Visibility = Visibility.Visible;
+                block4.Visibility = Visibility.Visible;
+                block5.Visibility = Visibility.Visible;
+                block6.Visibility = Visibility.Visible;
+                block7.Visibility = Visibility.Visible;
+                block8.Visibility = Visibility.Visible;
+                block9.Visibility = Visibility.Visible;
+                block10.Visibility = Visibility.Visible;
+                block11.Visibility = Visibility.Visible;
+                block12.Visibility = Visibility.Visible;
+                block13.Visibility = Visibility.Visible;
+                block14.Visibility = Visibility.Visible;
+                block15.Visibility = Visibility.Visible;
+                labelido.Visibility = Visibility.Visible;
+                labelpont.Visibility = Visibility.Visible;
+                stringpont.Visibility = Visibility.Visible;
+                stringido.Visibility = Visibility.Visible;
+                Mouse.OverrideCursor = Cursors.None;
             }
             else
             {
@@ -450,41 +476,43 @@ namespace Fallabda_javitott
 
         private void nehez_Click(object sender, RoutedEventArgs e)
         {
+            pont += 20;
             if (TextBoxPlayer.Text != "")
             {
+                diff = "Nehez";
                 labda.Width = 10;
-            labda.Height = 10;
-            uto.Width = 50;
-            nehezseg.Visibility = Visibility.Hidden;
-            kozepes.Visibility = Visibility.Hidden;
-            konnyu.Visibility = Visibility.Hidden;
-            nehez.Visibility = Visibility.Hidden;
-            labelPlayer.Visibility = Visibility.Hidden;
-            TextBoxPlayer.Visibility = Visibility.Hidden;
-            labda.Visibility = Visibility.Visible;
-            uto.Visibility = Visibility.Visible;
-            exit.Visibility = Visibility.Hidden;
-            block.Visibility = Visibility.Visible;
-            block1.Visibility = Visibility.Visible;
-            block2.Visibility = Visibility.Visible;
-            block3.Visibility = Visibility.Visible;
-            block4.Visibility = Visibility.Visible;
-            block5.Visibility = Visibility.Visible;
-            block6.Visibility = Visibility.Visible;
-            block7.Visibility = Visibility.Visible;
-            block8.Visibility = Visibility.Visible;
-            block9.Visibility = Visibility.Visible;
-            block10.Visibility = Visibility.Visible;
-            block11.Visibility = Visibility.Visible;
-            block12.Visibility = Visibility.Visible;
-            block13.Visibility = Visibility.Visible;
-            block14.Visibility = Visibility.Visible;
-            block15.Visibility = Visibility.Visible;
-            labelido.Visibility = Visibility.Visible;
-            labelpont.Visibility = Visibility.Visible;
-            stringpont.Visibility = Visibility.Visible;
-            stringido.Visibility = Visibility.Visible;
-            Mouse.OverrideCursor = Cursors.None;
+                labda.Height = 10;
+                uto.Width = 50;
+                nehezseg.Visibility = Visibility.Hidden;
+                kozepes.Visibility = Visibility.Hidden;
+                konnyu.Visibility = Visibility.Hidden;
+                nehez.Visibility = Visibility.Hidden;
+                labelPlayer.Visibility = Visibility.Hidden;
+                TextBoxPlayer.Visibility = Visibility.Hidden;
+                labda.Visibility = Visibility.Visible;
+                uto.Visibility = Visibility.Visible;
+                exit.Visibility = Visibility.Hidden;
+                block.Visibility = Visibility.Visible;
+                block1.Visibility = Visibility.Visible;
+                block2.Visibility = Visibility.Visible;
+                block3.Visibility = Visibility.Visible;
+                block4.Visibility = Visibility.Visible;
+                block5.Visibility = Visibility.Visible;
+                block6.Visibility = Visibility.Visible;
+                block7.Visibility = Visibility.Visible;
+                block8.Visibility = Visibility.Visible;
+                block9.Visibility = Visibility.Visible;
+                block10.Visibility = Visibility.Visible;
+                block11.Visibility = Visibility.Visible;
+                block12.Visibility = Visibility.Visible;
+                block13.Visibility = Visibility.Visible;
+                block14.Visibility = Visibility.Visible;
+                block15.Visibility = Visibility.Visible;
+                labelido.Visibility = Visibility.Visible;
+                labelpont.Visibility = Visibility.Visible;
+                stringpont.Visibility = Visibility.Visible;
+                stringido.Visibility = Visibility.Visible;
+                Mouse.OverrideCursor = Cursors.None;
             }
             else
             {

@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Fallabda_javitott"
         mc:Ignorable="d"
-        Title="Fallabda" Height="600" Width="1000">
+        Title="Fallabda"  MinHeight="600" MaxHeight="600" MaxWidth="1000" MinWidth="1000">
     <Grid Width="1000" Height="600">
-        <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="600" Background="Black" VerticalAlignment="Top" Width="1000">
+        <Canvas x:Name="canvas" HorizontalAlignment="Left" MinHeight="600" MaxHeight="600" Background="Black" VerticalAlignment="Top"  MaxWidth="1000" MinWidth="1000">
             <Button Content="Könnyű"  Visibility="Hidden" Name="konnyu" Background="Black" Foreground="White" BorderBrush="Blue" FontSize="20" FontFamily="Arial" Width="150" Height="50" Canvas.Left="417" Canvas.Top="199" Click="konnyu_Click"/>
             <Button Content="Közepes"  Visibility="Hidden" Name="kozepes" Background="Black" Foreground="White" BorderBrush="Blue" FontSize="20" FontFamily="Arial" Width="150" Height="50" Canvas.Left="417" Canvas.Top="297" Click="kozepes_Click"/>
             <Button Content="Nehéz"  Visibility="Hidden" Name="nehez" Background="Black" Foreground="White" BorderBrush="Blue" FontSize="20" FontFamily="Arial" Width="150" Height="50" Canvas.Left="417" Canvas.Top="403" Click="nehez_Click"/>
@@ -23,7 +23,7 @@
             <Label Content="0"  Visibility="Hidden" FontFamily="Arial" Foreground="White" FontSize="25" Name="labelpont" Canvas.Left="68"/>
             <Label Content="Pont:" Name="stringpont"  Visibility="Hidden" FontFamily="Arial" Foreground="White" FontSize="25"/>
             <Label Content="Idő:" Name="stringido"  Visibility="Hidden" FontFamily="Arial" Foreground="White" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="844,0,0,0"/>
-            <Label Content="0"  Visibility="Hidden" Name="labelido" FontFamily="Arial" Foreground="White" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="901"/>
+            <Label Content="{Binding GameTimer}"  Visibility="Hidden" Name="labelido"  FontFamily="Arial" Foreground="White" FontSize="25" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="901"/>
             <Button Content="Új játék!"  Visibility="Hidden" Name="uj" Background="Black" Foreground="White" BorderBrush="Blue" FontSize="20" FontFamily="Arial" Width="150" Height="50" Canvas.Left="417" Canvas.Top="352" Click="uj_Click"/>
 
             <Button Content="Kilépés" Visibility="Hidden"  Name="exit"  Background="Black" Foreground="White" BorderBrush="Blue" FontSize="20" FontFamily="Arial" Width="150" Height="50" Canvas.Left="813" Canvas.Top="487" Click="Button_Click"/>
@@ -39,8 +39,8 @@
             <Rectangle x:Name="block13" Tag="block" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="246" Height="40" VerticalAlignment="Top" Canvas.Left="251" Canvas.Top="275"/>
             <Rectangle x:Name="block15" Tag="block" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="246" Height="40" VerticalAlignment="Top" Canvas.Left="743" Canvas.Top="275" />
             <Rectangle x:Name="block14" Tag="block" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="246" Height="40" VerticalAlignment="Top" Canvas.Left="497" Canvas.Top="275"/>
-            <Label Name ="labelPlayer" Content="Mi a játékos neve?" Canvas.Left="703" Canvas.Top="343" Foreground="White" />
-            <TextBox Name="TextBoxPlayer" Canvas.Left="750" TextWrapping="Wrap" Background="Black" BorderBrush="Blue" Foreground="White" Text="" Canvas.Top="374" Width="120"/>
+            <Label Name ="labelPlayer" FontSize="25" Content="Mi a játékos neve?" Canvas.Left="746" Canvas.Top="332" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Width="217" Height="40" />
+            <TextBox Name="TextBoxPlayer" FontSize="20" Canvas.Left="782" TextWrapping="Wrap" Background="Black" BorderBrush="Blue" Foreground="White" Text="" Canvas.Top="387" Width="144" Height="26"/>
 
         </Canvas>
     </Grid>
