@@ -28,7 +28,7 @@
 
 -Snake_Case --> snake_case-nek nevezzük amikor a változó nevében két szótagot '_'-al választunk el, pl.: fajl_tomb,fajl_lista ezzel is átláthatóbbá tesszük a kódunkat
 
------------------
+----------------- A félév össze anyaga megtalálható a repómban!
 - [x] automatikus szemétgyűjtő
  - [x] github - mappákba rendezés
  - [x] nyelvi elemek - gyakorlás
