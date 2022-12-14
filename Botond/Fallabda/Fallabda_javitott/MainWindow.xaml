@@ -39,6 +39,8 @@
             <Rectangle x:Name="block13" Tag="block" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="246" Height="40" VerticalAlignment="Top" Canvas.Left="251" Canvas.Top="275"/>
             <Rectangle x:Name="block15" Tag="block" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="246" Height="40" VerticalAlignment="Top" Canvas.Left="743" Canvas.Top="275" />
             <Rectangle x:Name="block14" Tag="block" Fill="#FFF4F4F5" HorizontalAlignment="Left" Stroke="Black" Width="246" Height="40" VerticalAlignment="Top" Canvas.Left="497" Canvas.Top="275"/>
+            <Label Name ="labelPlayer" Content="Mi a játékos neve?" Canvas.Left="703" Canvas.Top="343" Foreground="White" />
+            <TextBox Name="TextBoxPlayer" Canvas.Left="750" TextWrapping="Wrap" Background="Black" BorderBrush="Blue" Foreground="White" Text="" Canvas.Top="374" Width="120"/>
 
         </Canvas>
     </Grid>

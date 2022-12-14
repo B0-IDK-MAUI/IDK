@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using Newtonsoft.Json;
 
 namespace Fallabda_javitott
 {
@@ -23,7 +24,7 @@ namespace Fallabda_javitott
     /// Timer duplázás
     /// </summary>
     public partial class MainWindow : Window
-    {
+    {    
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +33,8 @@ namespace Fallabda_javitott
             nehez.Visibility = Visibility.Visible;
             nehezseg.Visibility = Visibility.Visible;
             exit.Visibility = Visibility.Visible;
+            labelPlayer.Visibility = Visibility.Visible;
+            TextBoxPlayer.Visibility = Visibility.Visible;
             block.Visibility = Visibility.Hidden;
             block1.Visibility = Visibility.Hidden;
             block2.Visibility = Visibility.Hidden;
@@ -49,6 +52,7 @@ namespace Fallabda_javitott
             block14.Visibility = Visibility.Hidden;
             block15.Visibility = Visibility.Hidden;
 
+            
 
             DispatcherTimer ido = new DispatcherTimer();
             ido.Interval = TimeSpan.FromMilliseconds(1);
@@ -361,45 +365,58 @@ namespace Fallabda_javitott
 
         private void konnyu_Click(object sender, RoutedEventArgs e)
         {
-            nehezseg.Visibility = Visibility.Hidden;
-            konnyu.Visibility = Visibility.Hidden;
-            kozepes.Visibility = Visibility.Hidden;
-            nehez.Visibility = Visibility.Hidden;
-            labda.Visibility = Visibility.Visible;
-            uto.Visibility = Visibility.Visible;
-            exit.Visibility = Visibility.Hidden;
-            block.Visibility = Visibility.Visible;
-            block1.Visibility = Visibility.Visible;
-            block2.Visibility = Visibility.Visible;
-            block3.Visibility = Visibility.Visible;
-            block4.Visibility = Visibility.Visible;
-            block5.Visibility = Visibility.Visible;
-            block6.Visibility = Visibility.Visible;
-            block7.Visibility = Visibility.Visible;
-            block8.Visibility = Visibility.Visible;
-            block9.Visibility = Visibility.Visible;
-            block10.Visibility = Visibility.Visible;
-            block11.Visibility = Visibility.Visible;
-            block12.Visibility = Visibility.Visible;
-            block13.Visibility = Visibility.Visible;
-            block14.Visibility = Visibility.Visible;
-            block15.Visibility = Visibility.Visible;
-            labelido.Visibility = Visibility.Visible;
-            labelpont.Visibility = Visibility.Visible;
-            stringpont.Visibility = Visibility.Visible;
-            stringido.Visibility = Visibility.Visible;
-            Mouse.OverrideCursor = Cursors.None;
+            if (TextBoxPlayer.Text != "")
+            {
+                nehezseg.Visibility = Visibility.Hidden;
+                konnyu.Visibility = Visibility.Hidden;
+                kozepes.Visibility = Visibility.Hidden;
+                nehez.Visibility = Visibility.Hidden;
+                labelPlayer.Visibility = Visibility.Hidden;
+                TextBoxPlayer.Visibility = Visibility.Hidden;
+                labda.Visibility = Visibility.Visible;
+                uto.Visibility = Visibility.Visible;
+                exit.Visibility = Visibility.Hidden;
+                block.Visibility = Visibility.Visible;
+                block1.Visibility = Visibility.Visible;
+                block2.Visibility = Visibility.Visible;
+                block3.Visibility = Visibility.Visible;
+                block4.Visibility = Visibility.Visible;
+                block5.Visibility = Visibility.Visible;
+                block6.Visibility = Visibility.Visible;
+                block7.Visibility = Visibility.Visible;
+                block8.Visibility = Visibility.Visible;
+                block9.Visibility = Visibility.Visible;
+                block10.Visibility = Visibility.Visible;
+                block11.Visibility = Visibility.Visible;
+                block12.Visibility = Visibility.Visible;
+                block13.Visibility = Visibility.Visible;
+                block14.Visibility = Visibility.Visible;
+                block15.Visibility = Visibility.Visible;
+                labelido.Visibility = Visibility.Visible;
+                labelpont.Visibility = Visibility.Visible;
+                stringpont.Visibility = Visibility.Visible;
+                stringido.Visibility = Visibility.Visible;
+                Mouse.OverrideCursor = Cursors.None;
+            }
+            else
+            {
+                MessageBox.Show("A játékos név kitöltése kötelező!");
+            }
         }
 
         private void kozepes_Click(object sender, RoutedEventArgs e)
         {
-            labda.Width = 15;
+            if (TextBoxPlayer.Text != "")
+            {
+                labda.Width = 15;
             labda.Height = 15;
             uto.Width = 75;
             nehezseg.Visibility = Visibility.Hidden;
             konnyu.Visibility = Visibility.Hidden;
             kozepes.Visibility = Visibility.Hidden;
             nehez.Visibility = Visibility.Hidden;
+            labelPlayer.Visibility = Visibility.Hidden;
+            TextBoxPlayer.Visibility = Visibility.Hidden;
             labda.Visibility = Visibility.Visible;
             uto.Visibility = Visibility.Visible;
             exit.Visibility = Visibility.Hidden;
@@ -424,17 +441,26 @@ namespace Fallabda_javitott
             stringpont.Visibility = Visibility.Visible;
             stringido.Visibility = Visibility.Visible;
             Mouse.OverrideCursor = Cursors.None;
+            }
+            else
+            {
+                MessageBox.Show("A játékos név kitöltése kötelező!");
+            }
         }
 
         private void nehez_Click(object sender, RoutedEventArgs e)
         {
-            labda.Width = 10;
+            if (TextBoxPlayer.Text != "")
+            {
+                labda.Width = 10;
             labda.Height = 10;
             uto.Width = 50;
             nehezseg.Visibility = Visibility.Hidden;
             kozepes.Visibility = Visibility.Hidden;
             konnyu.Visibility = Visibility.Hidden;
             nehez.Visibility = Visibility.Hidden;
+            labelPlayer.Visibility = Visibility.Hidden;
+            TextBoxPlayer.Visibility = Visibility.Hidden;
             labda.Visibility = Visibility.Visible;
             uto.Visibility = Visibility.Visible;
             exit.Visibility = Visibility.Hidden;
@@ -459,6 +485,11 @@ namespace Fallabda_javitott
             stringpont.Visibility = Visibility.Visible;
             stringido.Visibility = Visibility.Visible;
             Mouse.OverrideCursor = Cursors.None;
+            }
+            else
+            {
+                MessageBox.Show("A játékos név kitöltése kötelező!");
+            }
         }
     }
 }
